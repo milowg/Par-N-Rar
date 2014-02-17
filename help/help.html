@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Par-N-Rar Help</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor=ffffff>
+<div style="font-family:verdana, helvetica, sans-serif">
+<table width="650" height="100%" border="0" align="center" cellspacing="0">
+  <tr> 
+    <td height="99%" valign="top"> 
+	<center><h2>Par-N-Rar Help</h2></center>
+	<br>
+	<h3>About</h3>
+	Par-N-Rar is a utility that automatically repairs and verifies PAR, PAR2, SFV, and MD5 files, then unRARs any RAR files it finds.<br><br>
+	If a .001 file is found and it cannot be unRARed, Par-N-Rar will assume it is a split file set and put together any files in that set (.002, .003, etc).<br><br>
+	For information on Par-N-Rar, see the <a href="http://www.milow.net/site/projects/parnrar.html">project page</a> or the <a href="http://www.milow.net/forums">forums</a>.</br>
+	For information on this release, see the <a href="../README.TXT">README</a>.</br>
+	<br>
+	<h3>The Main Window</h3>
+	<img src="mainWindow.gif" width=614 height=341 alt="Main Window">
+	<p>When Par-N-Rar is first loaded, by running ParNRar.exe, the main window appears as shown above. The main window consists of:<br>
+	<ul>
+		<li>Monitor Directory (Number 1) - 
+		<i>The directory that Par-N-Rar monitors to look for PAR/PAR2 files</i><br><br>
+		<li>Clear History button - <i>Clears any history directories in the Monitor Directory dropdown</i><br><br>		
+		<li>Status list view (Number 2) - <i>List of all found PAR/PAR2 sets</i><br><br>
+		<li>Go button - <i>Click this button to start searching Monitor Directory</i><br><br>
+		<li>Close button - <i>Click this button to close Par-N-Rar and abort and current operations</i><br><br>
+		<li>Options button - <i>Click this button for more options (see options section below)</i><br><br>
+	</ul>
+	</p>
+
+	<h3>Hotkeys</h3>
+	<p>The following hotkeys work while in the main window:<br>
+	<ul>
+		<li>Ctrl-G - <i>Go</i><br><br>
+		<li>Ctrl-P - <i>Pause</i><br><br>
+		<li>Ctrl-C - <i>Continue</i><br><br>
+		<li>Ctrl-S - <i>Stop</i><br><br>
+		<li>Ctrl-O - <i>Options</i><br><br>
+	</ul>
+	</p>
+
+	<h3>Verifying files</h3>
+	<p>When the Go button is clicked, it will change to a Pause button. Clicking Pause will pause all current activity until Continue is clicked.</p>
+	<p>Once the Go button is clicked, Par-N-Rar will search the Monitor Directory for PAR, PAR2, SFV and MD5 file sets. Any sets it finds will show up in the Status list view. Par-N-Rar then takes each set, one by one, and verifies the files 
+		in the set to make sure they are complete. If they are not, it will attempt to repair the set. Once the set is repaired, the Status column will show Done.</p>
+	<p>If you wish to only verify the Parity sets, select Yes on the dialog box that appears when the Go button is pressed. If you select No, Par-N-Rar will verify, repair, and extract each set.</p>
+	<p>For more details about what Par-N-Rar did for that file set, either double click on the file name, or use the context menu shown below by right clicking on the file set:</p>
+	<p><img src="contextMenu.gif" width=617 height=343 alt="Context Menu"></p>
+	<p>The details window shows more information on what was done with the file set, including the time that each operation happened:</p>
+	<p><img src="detailsWindow.gif" width=461 height=312 alt="Details Window"></p>
+
+	<br>
+	<h3>Other Menu Items</h3>	
+	<p>The other three menu items in the context menu:<br>
+	<ul>
+		<li>Delete Files -
+		<i>Deletes all files in that file set. This option is only available for file sets that have been verified and not deleted (as specified in the options), or are not currently being verified</i><br><br>
+		<li>Rescan - <i>Re-verify and extract the selected item(s)</i><br><br>
+		<li>Remove - <i>Removes the selected item(s) from the list</i><br><br>
+		<li>Remove Done - <i>Removes selected item(s) that have been verified and extracted</i><br><br>
+		<li>Open Containing Folder - <i>Opens the folder that the selected item has been found in</i><br><br>
+		<li>Skip Processing - <i>Stops processing the selected item(s)</i><br><br>
+	</ul>
+	</p>
+
+	<h3>Options</h3>	
+	<img src="options_dir.gif" width=617 height=375 alt="Directories">
+	<p><b>1 - </b>When not blank, Par-N-Rar will put all final files in this directory. Otherwise, Par-N-Rar will use the Monitor Directory.</p>
+	<p><b>2 - </b>If Par-N-Rar verifies that all files in a set are complete, but there are no RAR files to uncompress, it has the option to move that file set to a different directory as defined here. Leaving this field blank will keep the files in the Monitor Directory. These files will show up in subsequent scans.</p>
+	<p><ul>Both of the above options support the following variables:<br><br>
+	<ul>
+	<li>%s - <i>The name of the PAR file without the PAR extension</i><br><br>
+	<li>%d - <i>The path off of the Monitor directory where the PAR file was found. If Option 4 is not checked, this value will always be blank</i><br><br>
+	<li>%m - <i>The Monitor Directory path. This can be useful when the monitor directory changes a lot and the extract path should be relative to it</i>
+	</ul></ul></p>
+	<br>
+	
+	<img src="options_file.gif" width=617 height=375 alt="File Processing">
+	<p><b>1 - </b>Checking this box tells Par-N-Rar to delete PAR and RAR files when it is done verifying and uncompressing a file set. Check the Delete to Recycle Bin option to have Par-N-Rar delete these files to the Windows Recycle Bin.</p>
+	<p><b>2 - </b>Checking this box tells Par-N-Rar to delete empty directories when it is done verifying and uncompressing a file set. Check the Delete to Recycle Bin option to have Par-N-Rar delete these directories to the Windows Recycle Bin.</p>
+	<p><b>3 - </b>Checking this tells Par-N-Rar to search all subdirectories of the Monitor Directory recursively for PAR file sets.</p>
+	<p><b>4 - </b>PAR sets sometimes contain other files in addition to the RAR files. If this box is checked, Par-N-Rar will move those files to the done directory after uncompressing the RAR set. If this is not checked off, Par-N-Rar will leave these files in the Monitor Directory, or delete them if Option 3 is checked.</p>
+	<br>
+	
+	<img src="options_prog.gif" width=617 height=375 alt="Program">
+	<p><b>1 - </b>Set this value to change Par-N-Rar's system priority. The higher the setting, the more system resources like CPU Par-N-Rar will use. Setting this value to High or Realtime can make your system unresponsive to user input, so use them carefully.</p>	
+	<p><b>2 - </b>This option allows you to select what Par-N-Rar does when it finishes one round of verification/scanning/extraction. The options are as follows:<br>		<ul>
+		<li>Restart - <i>Restart verification after interval specified</i><br><br>
+		<li>Do Nothing<br><br>
+		<li>Beep<br><br>
+		<li>Shutdown System - <i>Shut down Windows</i><br><br>
+		<li>Close Par-N-Rar<br><br>
+	  </ul>
+	</p>
+	<p><b>3 - </b>Interval to restart scanning. Enter a delay here in seconds.</p>		
+	<p><b>4 - </b>When Par-N-Rar should check for a new version. Choices are Weekly, Monthly, Yearly, and Never.</p>		
+	<p><b>5 - </b>This option moves Par-N-Rar to the System Tray instead of the Taskbar when it is minimized. Close to tray moves Par-N-Rar to the System Tray when the X button on the top right of the dialog box is clicked.</p>
+	<p><b>6 - </b>When this option is clicked, Par-N-Rar will automatically scroll to the currently processing item in the list.</p>
+	
+	<br>
+	<h3>Command Line Interface</h3>	
+	<p>Par-N-Rar can be run from the Command Prompt and supports the following arguments:
+	<ul>
+	<li>/debug - <i>Log actions to file</i><br><br>
+	<li>/go - <i>Start scanning on load</i><br><br>
+	<li>/m "Monitor Directory" - <i>The Monitor Directory to start scanning. The quotes in this parameter are required</i><br><br>
+	<li>/min - <i>Minimize Par-N-Rar on startup</i><br><br>
+	</ul></ul>
+	</p>
+
+      </td>
+  </tr>
+  <tr>
+    <td align=center><font color="#aaaaaa" size="2px">Copyright (c) 2005-2006 Gil Milow</font></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
