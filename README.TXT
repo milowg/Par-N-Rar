@@ -7,7 +7,6 @@ Free Software Foundation; either version 2 of the License, or (at your
 option) any later version.
 
 For more information, see http://www.milow.net/site/projects/parnrar.html
-For questions, see the fourms at http://www.milow.net/forums
 
 Check help file for usage information.
 
